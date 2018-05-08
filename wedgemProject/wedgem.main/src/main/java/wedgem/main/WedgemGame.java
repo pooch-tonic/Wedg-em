@@ -7,7 +7,11 @@ public class WedgemGame {
 	private static final int	borderWidth	= 8;
 
 	public WedgemGame() {
-		// TODO Auto-generated constructor stub
+		// TODO constructor
+	}
+
+	public void play() {
+		// TODO play method
 	}
 
 }
