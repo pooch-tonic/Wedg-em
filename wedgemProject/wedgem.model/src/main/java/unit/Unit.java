@@ -11,8 +11,14 @@ public class Unit {
 		this.setPosition(null);
 	}
 
-	public Unit(final int player, final Vector position) {
+	public Unit(final int player, final int x, final int y) {
+		this.setPlayer(player);
+		this.setPosition(new Vector(x, y));
+	}
 
+	public Unit(final int player, final Vector position) {
+		this.setPlayer(player);
+		this.setPosition(position);
 	}
 
 	public int getPlayer() {
