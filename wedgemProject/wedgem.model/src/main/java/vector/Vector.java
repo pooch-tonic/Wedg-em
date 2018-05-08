@@ -31,12 +31,20 @@ public class Vector {
 		this.set(this.getX() + v.getX(), this.getY() + v.getY());
 	}
 
+	public float avoidDivideByZero(final float k) {
+		if (k != 0) {
+			return k;
+		} else {
+			return 1;
+		}
+	}
+
 	public void div(final float k) {
-		this.set(this.getX() / k, this.getY() / k);
+		this.set(this.getX() / this.avoidDivideByZero(k), this.getY() / this.avoidDivideByZero(k));
 	}
 
 	public void div(final int k) {
-		this.set(this.getX() / k, this.getY() / k);
+		this.set(this.getX() / this.avoidDivideByZero(k), this.getY() / this.avoidDivideByZero(k));
 	}
 
 	public float getX() {
