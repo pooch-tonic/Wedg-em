@@ -1,8 +1,12 @@
 package unit;
 
+import java.awt.Image;
+
+import interfacesModel.IDisplayable;
+import interfacesModel.IUnit;
 import vector.Vector;
 
-public class Unit {
+public class Unit implements IUnit, IDisplayable {
 	private int		player;
 	private Vector	position;
 
@@ -29,12 +33,22 @@ public class Unit {
 		return this.position;
 	}
 
+	public Image getSprite() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	public void setPlayer(final int player) {
 		this.player = player;
 	}
 
 	public void setPosition(final Vector position) {
 		this.position = position;
+	}
+
+	public void wedge() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

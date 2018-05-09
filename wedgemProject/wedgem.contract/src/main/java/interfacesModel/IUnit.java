@@ -7,7 +7,7 @@ public interface IUnit {
 
 	public Vector getPosition();
 
-	public void setPosition();
+	public void setPosition(final Vector position);
 
 	public void wedge();
 }

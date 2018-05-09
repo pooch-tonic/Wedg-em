@@ -2,10 +2,11 @@ package board;
 
 import java.awt.Image;
 
+import interfacesModel.IBoard;
 import interfacesModel.IDisplayable;
 import vector.Vector;
 
-public class Board implements IDisplayable {
+public class Board implements IBoard, IDisplayable {
 
 	public Board() {
 	}
