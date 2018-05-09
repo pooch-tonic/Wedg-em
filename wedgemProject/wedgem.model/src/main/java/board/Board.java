@@ -1,9 +1,21 @@
 package board;
 
-public class Board {
+import java.awt.Image;
+
+import interfacesModel.IDisplayable;
+import vector.Vector;
+
+public class Board implements IDisplayable {
 
 	public Board() {
-		// TODO Auto-generated constructor stub
+	}
+
+	public Vector getPosition() {
+		return null;
+	}
+
+	public Image getSprite() {
+		return null;
 	}
 
 }
