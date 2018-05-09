@@ -1,5 +1,5 @@
 package interfacesModel;
 
-public interface IBoard {
-
+public interface IBoard extends IDisplayable {
+	public ISquare[][] getSquares();
 }

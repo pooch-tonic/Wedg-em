@@ -2,11 +2,11 @@ package unit;
 
 import java.awt.Image;
 
-import interfacesModel.IDisplayable;
+import interfacesModel.IButton;
 import interfacesModel.IUnit;
 import vector.Vector;
 
-public class Unit implements IUnit, IDisplayable {
+public class Unit implements IUnit, IButton {
 	private int		player;
 	private Vector	position;
 
@@ -36,6 +36,16 @@ public class Unit implements IUnit, IDisplayable {
 	public Image getSprite() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void ifHovered() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void ifPressed() {
+		// TODO Auto-generated method stub
+
 	}
 
 	public void setPlayer(final int player) {
