@@ -7,6 +7,8 @@ import interfacesModel.IDisplayable;
 import vector.Vector;
 
 public abstract class Button implements IButton, IDisplayable {
+	private Image	sprite;
+	private Vector	position;
 
 	public Button() {
 		// TODO Auto-generated constructor stub
@@ -14,12 +16,12 @@ public abstract class Button implements IButton, IDisplayable {
 
 	public Vector getPosition() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.position;
 	}
 
 	public Image getSprite() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.sprite;
 	}
 
 	public void ifHovered() {
@@ -29,6 +31,14 @@ public abstract class Button implements IButton, IDisplayable {
 
 	public void ifPressed() {
 		// TODO Auto-generated method stub
+
+	}
+
+	public void setPositon(final Vector position) {
+
+	}
+
+	public void setSprite(final Vector position) {
 
 	}
 
