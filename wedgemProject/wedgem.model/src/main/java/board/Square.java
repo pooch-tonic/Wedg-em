@@ -10,6 +10,10 @@ public class Square implements ISquare {
 		this.setUnit(null);
 	}
 
+	public Square(final IUnit unit) {
+		this.setUnit(unit);
+	}
+
 	public IUnit getUnit() {
 		return this.unit;
 	}
