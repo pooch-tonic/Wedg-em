@@ -25,4 +25,8 @@ public class Board implements IBoard, IDisplayable {
 		return this.squares;
 	}
 
+	public void setSquare(final int line, final int column, final ISquare square) {
+		this.squares[line][column].
+	}
+
 }

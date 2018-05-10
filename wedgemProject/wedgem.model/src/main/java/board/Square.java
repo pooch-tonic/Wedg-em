@@ -2,13 +2,12 @@ package board;
 
 import interfacesModel.ISquare;
 import interfacesModel.IUnit;
-import unit.Unit;
 
 public class Square implements ISquare {
-	private Unit unit;
+	private IUnit unit;
 
 	public Square() {
-		// TODO Auto-generated constructor stub
+		this.setUnit(null);
 	}
 
 	public IUnit getUnit() {
@@ -16,8 +15,17 @@ public class Square implements ISquare {
 	}
 
 	public void placeUnitIfEmpty(final IUnit unit) {
-		// TODO Auto-generated method stub
+		if (this.getUnit() == null) {
+			this.setUnit(unit);
+		}
+	}
 
+	private void removeUnit() {
+		this.setUnit(null);
+	}
+
+	private void setUnit(final IUnit unit) {
+		this.unit = unit;
 	}
 
 }
