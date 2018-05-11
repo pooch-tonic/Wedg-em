@@ -65,9 +65,4 @@ public class Unit implements IUnit, IButton, IDisplayable {
 		this.sprite = sprite;
 	}
 
-	public void wedge() {
-		// TODO Auto-generated method stub
-
-	}
-
 }

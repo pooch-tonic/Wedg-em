@@ -9,5 +9,4 @@ public interface IUnit {
 
 	public void setPosition(final Vector position);
 
-	public void wedge();
 }
