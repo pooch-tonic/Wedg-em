@@ -5,12 +5,13 @@ import java.util.Observable;
 import java.util.Observer;
 
 import board.Board;
+import interfacesModel.IBoard;
 import interfacesModel.IGame;
 import vector.Vector;
 
 public class Game extends Observable implements IGame {
 	private ArrayList<Observer>	observers;
-	private Board				board;
+	private IBoard				board;
 
 	public Game() {
 		this.setObservers(new ArrayList<Observer>());
@@ -27,7 +28,7 @@ public class Game extends Observable implements IGame {
 		this.getObservers().remove(observer);
 	}
 
-	public Board getBoard() {
+	public IBoard getBoard() {
 		return this.board;
 	}
 
@@ -35,7 +36,7 @@ public class Game extends Observable implements IGame {
 		return this.observers;
 	}
 
-	public void setBoard(final Board board) {
+	public void setBoard(final IBoard board) {
 		this.board = board;
 	}
 
