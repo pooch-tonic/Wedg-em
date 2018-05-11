@@ -2,7 +2,7 @@ package interfacesModel;
 
 import vector.Vector;
 
-public interface IUnit extends IDisplayable {
+public interface IUnit {
 	public int getPlayer();
 
 	public Vector getPosition();

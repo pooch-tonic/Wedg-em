@@ -3,10 +3,11 @@ package unit;
 import java.awt.Image;
 
 import interfacesModel.IButton;
+import interfacesModel.IDisplayable;
 import interfacesModel.IUnit;
 import vector.Vector;
 
-public class Unit implements IUnit, IButton {
+public class Unit implements IUnit, IButton, IDisplayable {
 	private int		player;
 	private Vector	position;
 
@@ -44,6 +45,11 @@ public class Unit implements IUnit, IButton {
 	}
 
 	public void ifPressed() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void loadImage(final String imageName) {
 		// TODO Auto-generated method stub
 
 	}

@@ -15,6 +15,7 @@ public class Board implements IBoard, IDisplayable {
 	private ISquare[][]	squares;
 
 	public Board() {
+		this.setSprite(new Image("board.png"));
 		this.initSquares(GameSettings.getBoardheight(), GameSettings.getBoardwidth(), GameSettings.getSquaresize());
 	}
 
@@ -40,6 +41,11 @@ public class Board implements IBoard, IDisplayable {
 			this.setSquaresEmptyLine(i, maxColumns);
 		}
 		this.setSquaresFilledLine(maxLines, maxColumns, squareSize, 2);
+	}
+
+	public void loadImage(final String imageName) {
+		// TODO Auto-generated method stub
+
 	}
 
 	private void setPosition(final Vector position) {
