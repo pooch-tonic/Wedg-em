@@ -8,6 +8,4 @@ public interface IDisplayable {
 	public Vector getPosition();
 
 	public Image getSprite();
-
-	public void loadImage(String imageName);
 }

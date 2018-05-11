@@ -9,16 +9,20 @@ import vector.Vector;
 
 public class Unit implements IUnit, IButton, IDisplayable {
 	private int		player;
+	private Image	sprite;
 	private Vector	position;
 
 	public Unit() {
 		this.setPlayer(0);
 		this.setPosition(null);
+		this.setSprite(null);
 	}
 
 	public Unit(final int player, final int x, final int y) {
 		this.setPlayer(player);
+		this.setSprite(null);
 		this.setPosition(new Vector(x, y));
+		this.setSpriteByPlayer(player);
 	}
 
 	public Unit(final int player, final Vector position) {
@@ -60,6 +64,10 @@ public class Unit implements IUnit, IButton, IDisplayable {
 
 	public void setPosition(final Vector position) {
 		this.position = position;
+	}
+
+	public void setSprite(final Image sprite) {
+		this.sprite = sprite;
 	}
 
 	public void wedge() {
