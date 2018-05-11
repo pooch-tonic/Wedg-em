@@ -15,7 +15,7 @@ public class Board implements IBoard, IDisplayable {
 	private Vector		position;
 	private ISquare[][]	squares;
 
-	public Board() {
+	public Board(final Vector position) {
 		this.setSprite(SpriteProvider.getBoardSprite());
 		this.initSquares(GameSettings.getBoardheight(), GameSettings.getBoardwidth(), GameSettings.getSquaresize());
 	}
