@@ -10,18 +10,20 @@ import unit.Unit;
 import vector.Vector;
 
 public class Board implements IBoard, IDisplayable {
-	private ISquare[][] squares;
+	private Image		sprite;
+	private Vector		position;
+	private ISquare[][]	squares;
 
 	public Board() {
 		this.initSquares(GameSettings.getBoardheight(), GameSettings.getBoardwidth(), GameSettings.getSquaresize());
 	}
 
 	public Vector getPosition() {
-		return null;
+		return this.position;
 	}
 
 	public Image getSprite() {
-		return null;
+		return this.sprite;
 	}
 
 	public ISquare getSquare(final int line, final int column) {
@@ -38,6 +40,14 @@ public class Board implements IBoard, IDisplayable {
 			this.setSquaresEmptyLine(i, maxColumns);
 		}
 		this.setSquaresFilledLine(maxLines, maxColumns, squareSize, 2);
+	}
+
+	private void setPosition(final Vector position) {
+		this.position = position;
+	}
+
+	public void setSprite(final Image image) {
+		this.sprite = this.sprite;
 	}
 
 	public void setSquare(final int line, final int column, final ISquare square) {
