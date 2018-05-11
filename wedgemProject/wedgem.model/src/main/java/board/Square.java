@@ -1,9 +1,10 @@
 package board;
 
+import interfacesModel.IButton;
 import interfacesModel.ISquare;
 import interfacesModel.IUnit;
 
-public class Square implements ISquare {
+public class Square implements ISquare, IButton {
 	private IUnit unit;
 
 	public Square() {
@@ -16,6 +17,16 @@ public class Square implements ISquare {
 
 	public IUnit getUnit() {
 		return this.unit;
+	}
+
+	public void ifHovered() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void ifPressed() {
+		// TODO Auto-generated method stub
+
 	}
 
 	public void placeUnitIfEmpty(final IUnit unit) {

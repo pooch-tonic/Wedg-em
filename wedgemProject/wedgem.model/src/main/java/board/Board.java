@@ -3,6 +3,7 @@ package board;
 import java.awt.Image;
 
 import gameSettings.GameSettings;
+import image.SpriteProvider;
 import interfacesModel.IBoard;
 import interfacesModel.IDisplayable;
 import interfacesModel.ISquare;
@@ -15,7 +16,7 @@ public class Board implements IBoard, IDisplayable {
 	private ISquare[][]	squares;
 
 	public Board() {
-		this.setSprite(new Image("board.png"));
+		this.setSprite(SpriteProvider.getBoardSprite());
 		this.initSquares(GameSettings.getBoardheight(), GameSettings.getBoardwidth(), GameSettings.getSquaresize());
 	}
 

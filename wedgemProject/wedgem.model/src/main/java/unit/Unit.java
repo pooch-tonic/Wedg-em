@@ -2,6 +2,7 @@ package unit;
 
 import java.awt.Image;
 
+import image.SpriteProvider;
 import interfacesModel.IButton;
 import interfacesModel.IDisplayable;
 import interfacesModel.IUnit;
@@ -20,9 +21,8 @@ public class Unit implements IUnit, IButton, IDisplayable {
 
 	public Unit(final int player, final int x, final int y) {
 		this.setPlayer(player);
-		this.setSprite(null);
+		this.setSprite(SpriteProvider.getSpriteByPlayer(player));
 		this.setPosition(new Vector(x, y));
-		this.setSpriteByPlayer(player);
 	}
 
 	public Unit(final int player, final Vector position) {
