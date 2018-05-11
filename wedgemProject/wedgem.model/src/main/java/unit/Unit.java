@@ -40,7 +40,7 @@ public class Unit implements IUnit, IButton, IDisplayable {
 
 	public Image getSprite() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.sprite;
 	}
 
 	public void ifHovered() {
@@ -49,11 +49,6 @@ public class Unit implements IUnit, IButton, IDisplayable {
 	}
 
 	public void ifPressed() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void loadImage(final String imageName) {
 		// TODO Auto-generated method stub
 
 	}
