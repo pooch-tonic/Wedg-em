@@ -38,6 +38,7 @@ public class Game extends Observable implements IGame {
 
 	public void setBoard(final IBoard board) {
 		this.board = board;
+		this.notifyObservers(this);
 	}
 
 	private void setObservers(final ArrayList<Observer> observers) {
