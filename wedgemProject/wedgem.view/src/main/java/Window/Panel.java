@@ -1,5 +1,6 @@
 package Window;
 
+import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.JPanel;
@@ -15,11 +16,16 @@ public class Panel extends JPanel {
 		this.setBoardSprite(board.getSprite());
 	}
 
-	public Image getBoardSprite() {
+	private Image getBoardSprite() {
 		return this.boardSprite;
 	}
 
-	public void setBoardSprite(final Image boardSprite) {
+	@Override
+	public void paintComponent(final Graphics g) {
+		g.drawImage(this.getBoardSprite(), 0, 0, null);
+	}
+
+	private void setBoardSprite(final Image boardSprite) {
 		this.boardSprite = boardSprite;
 	}
 
