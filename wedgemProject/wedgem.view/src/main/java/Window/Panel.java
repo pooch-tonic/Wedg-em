@@ -1,8 +1,17 @@
 package Window;
 
-public class Panel {
+import javax.swing.JPanel;
 
-	public Panel() {
+import interfacesModel.IBoard;
+
+public class Panel extends JPanel {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 6527399859189638479L;
+
+	public Panel(final IBoard board) {
 		// TODO Auto-generated constructor stub
 	}
 
