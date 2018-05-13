@@ -13,7 +13,6 @@ public class Frame extends JFrame {
 	}
 
 	private void initFrame() {
-
 		this.setTitle("Wedg'em! (alpha)");
 		this.setSize(GameSettings.getBoardwidth() * GameSettings.getSquaresize(),
 				GameSettings.getBoardheight() * GameSettings.getSquaresize());
