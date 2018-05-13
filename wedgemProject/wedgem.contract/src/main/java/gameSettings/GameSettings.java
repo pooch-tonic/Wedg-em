@@ -10,15 +10,15 @@ public abstract class GameSettings {
 	private static final String	sprite_p2		= "unit_white.png";
 	private static final String	sprite_board	= "board.png";
 
-	public static int getBoardheight() {
+	public static int getBoardHeight() {
 		return boardHeight;
 	}
 
-	public static int getBoardwidth() {
+	public static int getBoardWidth() {
 		return boardWidth;
 	}
 
-	public static int getBorderwidth() {
+	public static int getBorderWidth() {
 		return borderWidth;
 	}
 

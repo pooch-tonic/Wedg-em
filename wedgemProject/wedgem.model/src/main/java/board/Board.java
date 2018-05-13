@@ -16,8 +16,10 @@ public class Board implements IBoard, IDisplayable {
 	private ISquare[][]	squares;
 
 	public Board(final Vector position) {
+		this.setSquares(new ISquare[GameSettings.getBoardHeight()][GameSettings.getBoardWidth()]);
 		this.setSprite(SpriteProvider.getBoardSprite());
-		this.initSquares(GameSettings.getBoardheight(), GameSettings.getBoardwidth(), GameSettings.getSquaresize());
+		this.setPosition(position);
+		this.initSquares(GameSettings.getBoardHeight(), GameSettings.getBoardWidth(), GameSettings.getSquaresize());
 	}
 
 	public Vector getPosition() {
@@ -41,7 +43,7 @@ public class Board implements IBoard, IDisplayable {
 		for (int i = 1; i < maxLines - 1; i++) {
 			this.setSquaresEmptyLine(i, maxColumns);
 		}
-		this.setSquaresFilledLine(maxLines, maxColumns, squareSize, 2);
+		this.setSquaresFilledLine(maxLines - 1, maxColumns, squareSize, 2);
 	}
 
 	public void loadImage(final String imageName) {
@@ -54,11 +56,15 @@ public class Board implements IBoard, IDisplayable {
 	}
 
 	public void setSprite(final Image image) {
-		this.sprite = this.sprite;
+		this.sprite = image;
 	}
 
 	public void setSquare(final int line, final int column, final ISquare square) {
 		this.squares[line][column] = square;
+	}
+
+	private void setSquares(final ISquare[][] squares) {
+		this.squares = squares;
 	}
 
 	public void setSquaresEmptyLine(final int line, final int maxColumns) {

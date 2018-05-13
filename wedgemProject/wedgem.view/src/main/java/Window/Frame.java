@@ -32,8 +32,8 @@ public class Frame extends JFrame {
 
 	private void initFrame() {
 		this.setTitle("Wedg'em! (alpha)");
-		this.setSize(GameSettings.getBoardwidth() * GameSettings.getSquaresize(),
-				GameSettings.getBoardheight() * GameSettings.getSquaresize());
+		this.setSize(GameSettings.getBoardWidth() * GameSettings.getSquaresize(),
+				GameSettings.getBoardHeight() * GameSettings.getSquaresize());
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
