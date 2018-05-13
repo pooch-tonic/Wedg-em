@@ -1,5 +1,7 @@
 package Window;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
 
 import gameSettings.GameSettings;
@@ -26,7 +28,7 @@ public class Frame extends JFrame {
 		return this.board;
 	}
 
-	private Panel getPanel() {
+	public Panel getPanel() {
 		return this.panel;
 	}
 
@@ -41,6 +43,7 @@ public class Frame extends JFrame {
 
 	private void initPanel() {
 		this.setPanel(new Panel(this.getBoard()));
+		this.getPanel().setBackground(Color.BLACK);
 	}
 
 	private void setBoard(final IBoard board) {

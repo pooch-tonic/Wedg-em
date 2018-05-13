@@ -23,6 +23,7 @@ public class WedgemGame {
 	private void initWedgemGame() {
 		this.setGame(new Game());
 		this.setFrame(new Frame(this.getGame().getBoard()));
+		this.getFrame().getPanel().repaint();
 	}
 
 	public void play() {
