@@ -21,8 +21,8 @@ public class WedgemGame {
 	}
 
 	private void initWedgemGame() {
-		this.setFrame(new Frame(this.getGame().getBoard()));
 		this.setGame(new Game());
+		this.setFrame(new Frame(this.getGame().getBoard()));
 	}
 
 	public void play() {
