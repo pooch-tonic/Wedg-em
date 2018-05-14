@@ -1,6 +1,8 @@
 package Window;
 
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
@@ -34,11 +36,16 @@ public class Frame extends JFrame {
 
 	private void initFrame() {
 		this.setTitle("Wedg'em! (alpha)");
-		this.setSize(GameSettings.getBoardWidth() * GameSettings.getSquaresize(),
-				GameSettings.getBoardHeight() * GameSettings.getSquaresize());
-		this.setVisible(true);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		Container c = this.getContentPane();
+		c.setBackground(Color.BLACK);
+		Dimension d = new Dimension(GameSettings.getBoardWidth() * GameSettings.getSquaresize(),
+				GameSettings.getBoardHeight() * GameSettings.getSquaresize());
+		c.setPreferredSize(d);
+		this.pack();
+		this.setResizable(false);
+		this.setVisible(true);
 	}
 
 	private void initPanel() {
