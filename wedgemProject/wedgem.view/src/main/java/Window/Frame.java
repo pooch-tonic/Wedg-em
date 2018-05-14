@@ -43,9 +43,9 @@ public class Frame extends JFrame {
 		Dimension d = new Dimension(GameSettings.getBoardWidth() * GameSettings.getSquaresize(),
 				GameSettings.getBoardHeight() * GameSettings.getSquaresize());
 		c.setPreferredSize(d);
-		this.pack();
 		this.setResizable(false);
 		this.setVisible(true);
+		this.pack();
 	}
 
 	private void initPanel() {
