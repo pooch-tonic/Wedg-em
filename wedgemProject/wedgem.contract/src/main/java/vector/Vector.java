@@ -1,15 +1,15 @@
 package vector;
 
 public class Vector {
-	private float	x;
-	private float	y;
+	private Float	x;
+	private Float	y;
 
 	public Vector() {
 		this.setX(0);
 		this.setY(0);
 	}
 
-	public Vector(final float x, final float y) {
+	public Vector(final Float x, final Float y) {
 		this.setX(x);
 		this.setY(y);
 	}
@@ -19,7 +19,7 @@ public class Vector {
 		this.setY((float) y);
 	}
 
-	public void add(final float x, final float y) {
+	public void add(final Float x, final Float y) {
 		this.set(this.getX() + x, this.getY() + y);
 	}
 
@@ -31,7 +31,7 @@ public class Vector {
 		this.set(this.getX() + v.getX(), this.getY() + v.getY());
 	}
 
-	public float avoidDivideByZero(final float k) {
+	public float avoidDivideByZero(final Float k) {
 		if (k != 0) {
 			return k;
 		} else {
@@ -39,23 +39,23 @@ public class Vector {
 		}
 	}
 
-	public void div(final float k) {
+	public void div(final Float k) {
 		this.set(this.getX() / this.avoidDivideByZero(k), this.getY() / this.avoidDivideByZero(k));
 	}
 
 	public void div(final int k) {
-		this.set(this.getX() / this.avoidDivideByZero(k), this.getY() / this.avoidDivideByZero(k));
+		this.set(this.getX() / this.avoidDivideByZero((float) k), this.getY() / this.avoidDivideByZero((float) k));
 	}
 
-	public float getX() {
+	public Float getX() {
 		return this.x;
 	}
 
-	public float getY() {
+	public Float getY() {
 		return this.y;
 	}
 
-	public void mult(final float k) {
+	public void mult(final Float k) {
 		this.set(this.getX() * k, this.getY() * k);
 	}
 
@@ -63,7 +63,7 @@ public class Vector {
 		this.set(this.getX() * k, this.getY() * k);
 	}
 
-	public void set(final float x, final float y) {
+	public void set(final Float x, final Float y) {
 		this.setX(x);
 		this.setY(y);
 	}
@@ -73,23 +73,23 @@ public class Vector {
 		this.setY(y);
 	}
 
-	private void setX(final float x) {
+	private void setX(final Float x) {
 		this.x = x;
 	}
 
 	private void setX(final int x) {
-		this.x = x;
+		this.x = (float) x;
 	}
 
-	private void setY(final float y) {
+	private void setY(final Float y) {
 		this.y = y;
 	}
 
 	private void setY(final int y) {
-		this.y = y;
+		this.y = (float) y;
 	}
 
-	public void sub(final float x, final float y) {
+	public void sub(final Float x, final Float y) {
 		this.set(this.getX() - x, this.getY() - y);
 	}
 
