@@ -22,9 +22,9 @@ public class MainController implements InteractionPerformer {
 		return this.unitManager;
 	}
 
-	public void processMousePosition(final IBoard board, final Point mouseposition) {
+	public void processMousePosition(final IBoard board, final Point mousePosition) {
 		// TODO process executed when mouse position is known
-
+		this.getBoardManager().resizeHoveredUnit(board, mousePosition);
 	}
 
 	private void setBoardManager(final BoardManager boardManager) {
