@@ -29,7 +29,7 @@ public class Panel extends JPanel {
 	}
 
 	private void drawUnit(final Graphics g, final IUnit unit) {
-		g.drawImage(unit.getSprite(), unit.getPosition().getX().intValue(), unit.getPosition().getX().intValue(), null);
+		g.drawImage(unit.getSprite(), unit.getPosition().getX().intValue(), unit.getPosition().getY().intValue(), null);
 	}
 
 	private void drawUnits(final Graphics g, final ISquare[][] squares) {

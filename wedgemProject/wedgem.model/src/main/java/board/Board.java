@@ -76,6 +76,8 @@ public class Board implements IBoard, IDisplayable {
 	public void setSquaresFilledLine(final int line, final int maxColumns, final int squareSize, final int player) {
 		for (int i = 0; i < maxColumns; i++) {
 			this.squares[line][i] = new Square(new Unit(player, i * squareSize, line * squareSize));
+			System.out.println("player " + player + ",line " + line + ", column " + i + ", position [" + i * squareSize
+					+ "; " + line * squareSize + "]");
 		}
 	}
 
