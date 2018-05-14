@@ -24,14 +24,12 @@ public abstract class Button implements IButton, IDisplayable {
 		return this.sprite;
 	}
 
-	public void ifHovered() {
-		// TODO Auto-generated method stub
-
+	public boolean isHoverable() {
+		return true;
 	}
 
-	public void ifPressed() {
-		// TODO Auto-generated method stub
-
+	public boolean isPressable() {
+		return true;
 	}
 
 	public void setPositon(final Vector position) {

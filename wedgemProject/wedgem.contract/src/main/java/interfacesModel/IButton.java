@@ -1,7 +1,7 @@
 package interfacesModel;
 
 public interface IButton {
-	public void ifHovered();
+	public boolean isHoverable();
 
-	public void ifPressed();
+	public boolean isPressable();
 }
