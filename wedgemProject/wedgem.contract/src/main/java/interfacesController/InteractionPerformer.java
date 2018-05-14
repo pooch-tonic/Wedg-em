@@ -5,5 +5,5 @@ import java.awt.Point;
 import interfacesModel.IBoard;
 
 public interface InteractionPerformer {
-	public void processMousePosition(final IBoard board, final Point mousePosition);
+	public IBoard processMousePosition(final IBoard board, final Point mousePosition);
 }

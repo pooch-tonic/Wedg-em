@@ -96,7 +96,7 @@ public class Frame extends JFrame implements MouseListener, MouseMotionListener 
 
 	}
 
-	private void setBoard(final IBoard board) {
+	public void setBoard(final IBoard board) {
 		this.board = board;
 	}
 
