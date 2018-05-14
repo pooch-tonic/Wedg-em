@@ -3,6 +3,7 @@ package mainController;
 import java.awt.Point;
 
 import interfacesController.InteractionPerformer;
+import interfacesModel.IBoard;
 
 public class MainController implements InteractionPerformer {
 	private BoardManager	boardManager;
@@ -21,8 +22,8 @@ public class MainController implements InteractionPerformer {
 		return this.unitManager;
 	}
 
-	public void processMousePosition(final Point mouseposition) {
-		// TODO Auto-generated method stub
+	public void processMousePosition(final IBoard board, final Point mouseposition) {
+		// TODO process executed when mouse position is known
 
 	}
 
