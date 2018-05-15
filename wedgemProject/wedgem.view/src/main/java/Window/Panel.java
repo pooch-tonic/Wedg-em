@@ -5,6 +5,7 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
+import gameSettings.GameSettings;
 import interfacesModel.IBoard;
 import interfacesModel.ISquare;
 import interfacesModel.IUnit;
@@ -110,7 +111,8 @@ public class Panel extends JPanel {
 
 	public void setPaintDelimiter(final boolean paintDelimiter, final int x, final int y) {
 		this.paintDelimiter = paintDelimiter;
-		this.setDelimiterPosition(new Vector(x, y));
+		this.setDelimiterPosition(new Vector(x - (GameSettings.getBoardWidth() - 1) * GameSettings.getSquaresize(),
+				y - (GameSettings.getBoardHeight() - 1) * GameSettings.getSquaresize()));
 	}
 
 	private void setxBoard(final int xBoard) {

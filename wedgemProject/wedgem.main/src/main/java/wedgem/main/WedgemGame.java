@@ -58,7 +58,7 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 		int[] indexes = this.getController().getBoardManager().getSquareIndexesUnderMouse(this.getBoardTemp(),
 				e.getPoint());
 		if (this.boardTemp.getSquare(indexes[0], indexes[1]).getUnit() != null) {
-			this.toggleDelimiter(indexes[0] * GameSettings.getSquaresize(), indexes[1] * GameSettings.getSquaresize());
+			this.toggleDelimiter(indexes[1] * GameSettings.getSquaresize(), indexes[0] * GameSettings.getSquaresize());
 		}
 	}
 
