@@ -11,8 +11,9 @@ public interface IUnit {
 
 	public Image getSprite();
 
-	public void setHoveredSprite();
+	public void resetSprite();
 
 	public void setPosition(final Vector position);
 
+	public void useHoveredSprite();
 }

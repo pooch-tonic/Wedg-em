@@ -11,8 +11,6 @@ public class BoardManager {
 	}
 
 	private int[] getSquareIndexesUnderMouse(final IBoard board, final Point mousePosition) {
-		System.out.println(mousePosition.getX());
-		System.out.println(mousePosition.getY());
 		return (new int[] { (int) (mousePosition.getY() / GameSettings.getSquaresize()),
 				(int) (mousePosition.getX() / GameSettings.getSquaresize()) });
 		// returns [Y = Lines][X = Columns]
@@ -20,7 +18,8 @@ public class BoardManager {
 
 	public IBoard resizeHoveredUnit(final IBoard board, final Point mousePosition) {
 		int[] hoveredSquareIndexes = this.getSquareIndexesUnderMouse(board, mousePosition);
-		board.getSquares()[hoveredSquareIndexes[0]][hoveredSquareIndexes[1]].getUnit().setHoveredSprite();
+		// board.getSquares()[hoveredSquareIndexes[0]][hoveredSquareIndexes[1]].getUnit().useHoveredSprite();
+		board.manageHoveredUnit(hoveredSquareIndexes[0], hoveredSquareIndexes[1]);
 		return board;
 	}
 

@@ -51,6 +51,23 @@ public class Board implements IBoard, IDisplayable {
 
 	}
 
+	public void manageHoveredUnit(final int line, final int column) {
+		// System.out.println("line " + line + ", column " + column);
+		if (this.squares[line][column].getUnit() != null) {
+			this.squares[line][column].getUnit().useHoveredSprite();
+		}
+	}
+
+	public void resetAllUnits() {
+		for (ISquare[] squaresRow : this.squares) {
+			for (ISquare square : squaresRow) {
+				if (square.getUnit() != null) {
+					square.getUnit().resetSprite();
+				}
+			}
+		}
+	}
+
 	private void setPosition(final Vector position) {
 		this.position = position;
 	}
@@ -76,8 +93,10 @@ public class Board implements IBoard, IDisplayable {
 	public void setSquaresFilledLine(final int line, final int maxColumns, final int squareSize, final int player) {
 		for (int i = 0; i < maxColumns; i++) {
 			this.squares[line][i] = new Square(new Unit(player, i * squareSize, line * squareSize));
-			System.out.println("player " + player + ",line " + line + ", column " + i + ", position [" + i * squareSize
-					+ "; " + line * squareSize + "]");
+			/*
+			 * System.out.println("player " + player + ",line " + line + ", column " + i +
+			 * ", position [" + i * squareSize + "; " + line * squareSize + "]");
+			 */
 		}
 	}
 

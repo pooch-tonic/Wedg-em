@@ -12,9 +12,12 @@ import vector.Vector;
 public class Unit implements IUnit, IButton, IDisplayable {
 	private int		player;
 	private Image	sprite;			// normal state
+	private Image	normalSprite;
 	private Image	hoveredSprite;	// hovered state
 	private Vector	position;
+	private Vector	normalPosition;
 	private Vector	hoveredPosition;
+	private boolean	isResized;
 
 	public Unit() {
 		this.setPlayer(0);
@@ -24,24 +27,16 @@ public class Unit implements IUnit, IButton, IDisplayable {
 	}
 
 	public Unit(final int player, final int x, final int y) {
-		this.setPlayer(player);
-		this.setSprite(SpriteProvider.getSpriteByPlayer(player));
-		this.setHoveredSprite(this.getSprite().getScaledInstance(
-				Math.round(this.getSprite().getWidth(null) * GameSettings.getHoveringresizescale()),
-				Math.round(this.getSprite().getHeight(null) * GameSettings.getHoveringresizescale()),
-				Image.SCALE_SMOOTH));
-		this.setPosition(new Vector(x, y));
-		this.setHoveredPosition(this.calculateHoveredPosition());
+		this.initialize(player, new Vector(x, y));
 	}
 
 	public Unit(final int player, final Vector position) {
-		this.setPlayer(player);
-		this.setPosition(position);
+		this.initialize(player, position);
 	}
 
 	private Vector calculateHoveredPosition() {
-		final int difference = this.getHoveredSprite().getWidth(null) - this.getHoveredSprite().getHeight(null);
-		return (new Vector(this.getPosition().getX() - difference, this.getPosition().getY() - difference));
+		final int difference = (this.getHoveredSprite().getWidth(null) - this.getNormalSprite().getWidth(null)) / 2;
+		return (new Vector(this.getNormalPosition().getX() - difference, this.getNormalPosition().getY() - difference));
 	}
 
 	public Vector getHoveredPosition() {
@@ -52,6 +47,14 @@ public class Unit implements IUnit, IButton, IDisplayable {
 		return this.hoveredSprite;
 	}
 
+	public Vector getNormalPosition() {
+		return this.normalPosition;
+	}
+
+	public Image getNormalSprite() {
+		return this.normalSprite;
+	}
+
 	public int getPlayer() {
 		return this.player;
 	}
@@ -60,9 +63,26 @@ public class Unit implements IUnit, IButton, IDisplayable {
 		return this.position;
 	}
 
+	private Image getScaledUnit() {
+		return this.getNormalSprite().getScaledInstance(
+				Math.round(this.getNormalSprite().getWidth(null) * GameSettings.getHoveringresizescale()),
+				Math.round(this.getNormalSprite().getHeight(null) * GameSettings.getHoveringresizescale()),
+				Image.SCALE_SMOOTH);
+	}
+
 	public Image getSprite() {
 		// TODO Auto-generated method stub
 		return this.sprite;
+	}
+
+	public void initialize(final int player, final Vector position) {
+		this.setPlayer(player);
+		this.setNormalSprite(SpriteProvider.getSpriteByPlayer(player));
+		this.setHoveredSprite(this.getScaledUnit());
+		this.setNormalPosition(position);
+		this.setHoveredPosition(this.calculateHoveredPosition());
+		this.setSprite(this.getNormalSprite());
+		this.setPosition(this.getNormalPosition());
 	}
 
 	public boolean isHoverable() {
@@ -73,16 +93,32 @@ public class Unit implements IUnit, IButton, IDisplayable {
 		return true;
 	}
 
+	public boolean isResized() {
+		return this.isResized;
+	}
+
+	public void resetSprite() {
+		if (this.isResized()) {
+			this.setResized(false);
+			this.setSprite(this.getNormalSprite());
+			this.setPosition(this.getNormalPosition());
+		}
+	}
+
 	private void setHoveredPosition(final Vector hoveredPosition) {
 		this.hoveredPosition = hoveredPosition;
 	}
 
-	public void setHoveredSprite() {
-		this.setSprite(this.getHoveredSprite());
-	}
-
 	private void setHoveredSprite(final Image hoveredSprite) {
 		this.hoveredSprite = hoveredSprite;
+	}
+
+	private void setNormalPosition(final Vector normalPosition) {
+		this.normalPosition = normalPosition;
+	}
+
+	private void setNormalSprite(final Image normalSprite) {
+		this.normalSprite = normalSprite;
 	}
 
 	public void setPlayer(final int player) {
@@ -93,8 +129,20 @@ public class Unit implements IUnit, IButton, IDisplayable {
 		this.position = position;
 	}
 
+	private void setResized(final boolean isResized) {
+		this.isResized = isResized;
+	}
+
 	public void setSprite(final Image sprite) {
 		this.sprite = sprite;
+	}
+
+	public void useHoveredSprite() {
+		if (!this.isResized()) {
+			this.setResized(true);
+			this.setSprite(this.getHoveredSprite());
+			this.setPosition(this.getHoveredPosition());
+		}
 	}
 
 }
