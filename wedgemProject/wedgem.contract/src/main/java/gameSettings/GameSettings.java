@@ -1,7 +1,7 @@
 package gameSettings;
 
 public abstract class GameSettings {
-	private static final Float	graphicsScale		= 1.5f;
+	private static final Float	graphicsScale		= 1.0f;
 	private static final int	boardWidth			= 10;
 	private static final int	boardHeight			= 10;
 	private static final int	defaultSquareSize	= 64;
