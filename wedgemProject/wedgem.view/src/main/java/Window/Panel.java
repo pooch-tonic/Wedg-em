@@ -33,6 +33,11 @@ public class Panel extends JPanel {
 		g.drawImage(this.getBoardSprite(), this.getxBoard(), this.getyBoard(), null);
 	}
 
+	private void drawDelimiter(final Graphics g) {
+		g.drawImage(this.getDelimiterSprite(), this.getDelimiterPosition().getX().intValue(),
+				this.getDelimiterPosition().getY().intValue(), null);
+	}
+
 	private void drawUnit(final Graphics g, final IUnit unit) {
 		g.drawImage(unit.getSprite(), unit.getPosition().getX().intValue(), unit.getPosition().getY().intValue(), null);
 	}
@@ -57,6 +62,14 @@ public class Panel extends JPanel {
 		return this.boardSprite;
 	}
 
+	private Vector getDelimiterPosition() {
+		return this.delimiterPosition;
+	}
+
+	private Image getDelimiterSprite() {
+		return this.delimiterSprite;
+	}
+
 	public boolean getPaintDelimiter() {
 		return this.paintDelimiter;
 	}
@@ -73,6 +86,9 @@ public class Panel extends JPanel {
 	public void paintComponent(final Graphics g) {
 		super.paintComponent(g);
 		this.drawBoard(g);
+		if (this.paintDelimiter) {
+			this.drawDelimiter(g);
+		}
 		this.drawUnits(g, this.getBoard().getSquares());
 	}
 
@@ -80,12 +96,16 @@ public class Panel extends JPanel {
 		this.board = board;
 	}
 
-	private void drawDelimiter(final Graphics g) {
-		g.drawImage(this.getDelimiterSprite(), this.x, this.y, null)
-	}
-
 	private void setBoardSprite(final Image boardSprite) {
 		this.boardSprite = boardSprite;
+	}
+
+	private void setDelimiterPosition(final Vector delimiterPosition) {
+		this.delimiterPosition = delimiterPosition;
+	}
+
+	private void setDelimiterSprite(final Image delimiterSprite) {
+		this.delimiterSprite = delimiterSprite;
 	}
 
 	public void setPaintDelimiter(final boolean paintDelimiter, final int x, final int y) {
@@ -99,22 +119,6 @@ public class Panel extends JPanel {
 
 	private void setyBoard(final int yBoard) {
 		this.yBoard = yBoard;
-	}
-
-	private Image getDelimiterSprite() {
-		return this.delimiterSprite;
-	}
-
-	private void setDelimiterSprite(final Image delimiterSprite) {
-		this.delimiterSprite = delimiterSprite;
-	}
-
-	private Vector getDelimiterPosition() {
-		return this.delimiterPosition;
-	}
-
-	private void setDelimiterPosition(final Vector delimiterPosition) {
-		this.delimiterPosition = delimiterPosition;
 	}
 
 }

@@ -16,6 +16,7 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 	private IGame			game;
 	private MainController	controller;
 	private IBoard			boardTemp;
+	private boolean			toggleDelimiter;
 
 	public WedgemGame() {
 		this.initWedgemGame();
@@ -46,6 +47,11 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 		this.getFrame().getContentPane().addMouseListener(this);
 		this.getFrame().getContentPane().addMouseMotionListener(this);
 		this.getFrame().getPanel().repaint();
+		this.setToggleDelimiter(false);
+	}
+
+	private boolean isToggleDelimiter() {
+		return this.toggleDelimiter;
 	}
 
 	public void mouseClicked(final MouseEvent e) {
@@ -111,7 +117,18 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 		this.game = game;
 	}
 
+	private void setToggleDelimiter(final boolean toggleDelimiter) {
+		this.toggleDelimiter = toggleDelimiter;
+	}
+
 	private void toggleDelimiter(final int x, final int y) {
+		if (this.isToggleDelimiter()) {
+			this.getFrame().getPanel().setPaintDelimiter(false, x, y);
+			this.setToggleDelimiter(false);
+		} else {
+			this.getFrame().getPanel().setPaintDelimiter(true, x, y);
+			this.setToggleDelimiter(true);
+		}
 
 	}
 

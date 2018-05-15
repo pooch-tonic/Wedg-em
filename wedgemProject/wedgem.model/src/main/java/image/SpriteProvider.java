@@ -3,9 +3,8 @@ package image;
 import java.awt.Image;
 
 import gameSettings.GameSettings;
-import interfacesModel.ISpriteProvider;
 
-public abstract class SpriteProvider implements {
+public abstract class SpriteProvider {
 
 	public static Image getBoardSprite() {
 		return ImageLoader.load(GameSettings.getSpriteBoard());
