@@ -16,9 +16,14 @@ public class MainController implements InteractionPerformer {
 		return this.boardManager;
 	}
 
-	public IBoard processMousePosition(final IBoard board, final Point mousePosition, final boolean isDelimiterOn) {
+	public void processMousePosition(final IBoard board, final Point mousePosition, final boolean isDelimiterOn) {
 		// TODO process executed when mouse position is known
-		return this.getBoardManager().resizeHoveredUnit(board, mousePosition);
+		if (isDelimiterOn) {
+			this.getBoardManager().selectionStep(board, mousePosition);
+		} else {
+			this.getBoardManager().resizeHoveredUnit(board, mousePosition);
+		}
+
 	}
 
 	private void setBoardManager(final BoardManager boardManager) {

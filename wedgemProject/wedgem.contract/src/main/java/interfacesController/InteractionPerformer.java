@@ -5,5 +5,5 @@ import java.awt.Point;
 import interfacesModel.IBoard;
 
 public interface InteractionPerformer {
-	public IBoard processMousePosition(final IBoard board, final Point mousePosition, final boolean isDelimiterOn);
+	public void processMousePosition(final IBoard board, final Point mousePosition, final boolean isDelimiterOn);
 }

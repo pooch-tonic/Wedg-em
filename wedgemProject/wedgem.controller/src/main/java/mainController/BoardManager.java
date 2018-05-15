@@ -23,4 +23,8 @@ public class BoardManager {
 		return board;
 	}
 
+	public void selectionStep() {
+
+	}
+
 }
