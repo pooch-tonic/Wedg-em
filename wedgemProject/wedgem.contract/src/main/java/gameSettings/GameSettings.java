@@ -1,11 +1,13 @@
 package gameSettings;
 
 public abstract class GameSettings {
-
+	private static final Float	graphicsScale		= 1.5f;
 	private static final int	boardWidth			= 10;
 	private static final int	boardHeight			= 10;
-	private static final int	squareSize			= 64;
-	private static final int	borderWidth			= 8;
+	private static final int	defaultSquareSize	= 64;
+	private static final int	squareSize			= (int) (defaultSquareSize * graphicsScale);
+	private static final int	defaultBorderWidth	= 8;
+	private static final int	borderWidth			= (int) (defaultBorderWidth * graphicsScale);
 	private static final Float	hoveringResizeScale	= 1.2f;
 	private static final String	sprite_p1			= "/unit_black.png";
 	private static final String	sprite_p2			= "/unit_white.png";
@@ -22,6 +24,10 @@ public abstract class GameSettings {
 
 	public static int getBorderWidth() {
 		return borderWidth;
+	}
+
+	public static Float getGraphicsscale() {
+		return graphicsScale;
 	}
 
 	public static Float getHoveringresizescale() {

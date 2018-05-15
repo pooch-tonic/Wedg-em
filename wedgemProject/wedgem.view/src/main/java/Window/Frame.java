@@ -37,7 +37,6 @@ public class Frame extends JFrame {
 
 	private void initFrame() {
 		this.setTitle("Wedg'em! (alpha)");
-		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		Container c = this.getContentPane();
 		c.setBackground(Color.BLACK);
@@ -45,8 +44,10 @@ public class Frame extends JFrame {
 				GameSettings.getBoardHeight() * GameSettings.getSquaresize());
 		c.setPreferredSize(d);
 		this.setResizable(false);
+		this.setUndecorated(false);
 		this.setVisible(true);
 		this.pack();
+		this.setLocationRelativeTo(null); // this has to be called after pack().
 	}
 
 	private void initPanel(final Image delimiterSprite) {
