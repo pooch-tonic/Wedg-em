@@ -14,6 +14,10 @@ public abstract class SpriteProvider {
 		return ImageLoader.load(GameSettings.getSpriteDelimiter());
 	}
 
+	public static Image getSelectorSprite() {
+		return ImageLoader.load(GameSettings.getSpriteSelector());
+	}
+
 	public static Image getSpriteByPlayer(final int player) {
 		switch (player) {
 		case 1:

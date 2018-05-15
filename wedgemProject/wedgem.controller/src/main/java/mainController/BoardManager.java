@@ -23,7 +23,7 @@ public class BoardManager {
 		return board;
 	}
 
-	public void selectionStep() {
+	public void selectionStep(final IBoard board, final Point mousePosition) {
 
 	}
 

@@ -7,6 +7,7 @@ import image.SpriteProvider;
 import interfacesModel.IBoard;
 import interfacesModel.IDisplayable;
 import interfacesModel.ISquare;
+import interfacesModel.IUnit;
 import unit.Unit;
 import vector.Vector;
 
@@ -46,11 +47,6 @@ public class Board implements IBoard, IDisplayable {
 		this.setSquaresFilledLine(maxLines - 1, maxColumns, squareSize, 2);
 	}
 
-	public void loadImage(final String imageName) {
-		// TODO Auto-generated method stub
-
-	}
-
 	public void manageHoveredUnit(final int line, final int column) {
 		// System.out.println("line " + line + ", column " + column);
 		if (this.squares[line][column].getUnit() != null) {
@@ -61,8 +57,14 @@ public class Board implements IBoard, IDisplayable {
 	public void resetAllUnits() {
 		for (ISquare[] squaresRow : this.squares) {
 			for (ISquare square : squaresRow) {
-				if (square.getUnit() != null) {
-					square.getUnit().resetSprite();
+				IUnit unitTemp = square.getUnit();
+				if (unitTemp != null) {
+					if (unitTemp.getPlayer() != 0) {
+						unitTemp.resetSprite();
+					} else {
+						square.removeUnit();
+					}
+
 				}
 			}
 		}

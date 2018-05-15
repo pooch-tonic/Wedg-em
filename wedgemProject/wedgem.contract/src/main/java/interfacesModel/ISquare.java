@@ -4,4 +4,6 @@ public interface ISquare {
 	public IUnit getUnit();
 
 	public void placeUnitIfEmpty(final IUnit unit);
+
+	public void removeUnit();
 }

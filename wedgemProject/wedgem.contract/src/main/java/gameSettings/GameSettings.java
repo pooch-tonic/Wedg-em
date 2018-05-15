@@ -14,6 +14,7 @@ public abstract class GameSettings {
 	private static final String	sprite_p2			= "/unit_white.png";
 	private static final String	sprite_board		= "/board.png";
 	private static final String	sprite_delimiter	= "/delimiter.png";
+	private static final String	sprite_selector		= "/selector.png";
 
 	public static int getBoardHeight() {
 		return boardHeight;
@@ -53,6 +54,10 @@ public abstract class GameSettings {
 
 	public static String getSpriteP2() {
 		return sprite_p2;
+	}
+
+	public static String getSpriteSelector() {
+		return sprite_selector;
 	}
 
 	public static int getSquaresize() {

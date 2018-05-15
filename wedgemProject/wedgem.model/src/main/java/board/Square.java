@@ -24,7 +24,7 @@ public class Square implements ISquare {
 		}
 	}
 
-	private void removeUnit() {
+	public void removeUnit() {
 		this.setUnit(null);
 	}
 
