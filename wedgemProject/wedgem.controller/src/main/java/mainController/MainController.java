@@ -6,33 +6,23 @@ import interfacesController.InteractionPerformer;
 import interfacesModel.IBoard;
 
 public class MainController implements InteractionPerformer {
-	private BoardManager	boardManager;
-	private UnitManager		unitManager;
+	private BoardManager boardManager;
 
 	public MainController() {
 		this.setBoardManager(new BoardManager());
-		this.setUnitManager(new UnitManager());
 	}
 
 	public BoardManager getBoardManager() {
 		return this.boardManager;
 	}
 
-	public UnitManager getUnitManager() {
-		return this.unitManager;
-	}
-
-	public IBoard processMousePosition(final IBoard board, final Point mousePosition) {
+	public IBoard processMousePosition(final IBoard board, final Point mousePosition, final boolean isDelimiterOn) {
 		// TODO process executed when mouse position is known
 		return this.getBoardManager().resizeHoveredUnit(board, mousePosition);
 	}
 
 	private void setBoardManager(final BoardManager boardManager) {
 		this.boardManager = boardManager;
-	}
-
-	private void setUnitManager(final UnitManager unitManager) {
-		this.unitManager = unitManager;
 	}
 
 }

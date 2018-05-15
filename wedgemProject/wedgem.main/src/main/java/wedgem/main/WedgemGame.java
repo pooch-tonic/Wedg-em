@@ -16,7 +16,7 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 	private IGame			game;
 	private MainController	controller;
 	private IBoard			boardTemp;
-	private boolean			toggleDelimiter;
+	private boolean			isDelimiterOn;
 
 	public WedgemGame() {
 		this.initWedgemGame();
@@ -47,11 +47,11 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 		this.getFrame().getContentPane().addMouseListener(this);
 		this.getFrame().getContentPane().addMouseMotionListener(this);
 		this.getFrame().getPanel().repaint();
-		this.setToggleDelimiter(false);
+		this.setIsDelimiterOn(false);
 	}
 
-	private boolean isToggleDelimiter() {
-		return this.toggleDelimiter;
+	public boolean isDelimiterOn() {
+		return this.isDelimiterOn;
 	}
 
 	public void mouseClicked(final MouseEvent e) {
@@ -79,7 +79,7 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 
 	public void mouseMoved(final MouseEvent e) {
 		this.getBoardTemp().resetAllUnits();
-		this.getController().processMousePosition(this.getBoardTemp(), e.getPoint());
+		this.getController().processMousePosition(this.getBoardTemp(), e.getPoint(), this.isDelimiterOn());
 	}
 
 	public void mousePressed(final MouseEvent e) {
@@ -117,17 +117,17 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 		this.game = game;
 	}
 
-	private void setToggleDelimiter(final boolean toggleDelimiter) {
-		this.toggleDelimiter = toggleDelimiter;
+	private void setIsDelimiterOn(final boolean toggleDelimiter) {
+		this.isDelimiterOn = toggleDelimiter;
 	}
 
 	private void toggleDelimiter(final int x, final int y) {
-		if (this.isToggleDelimiter()) {
+		if (this.isDelimiterOn()) {
 			this.getFrame().getPanel().setPaintDelimiter(false, x, y);
-			this.setToggleDelimiter(false);
+			this.setIsDelimiterOn(false);
 		} else {
 			this.getFrame().getPanel().setPaintDelimiter(true, x, y);
-			this.setToggleDelimiter(true);
+			this.setIsDelimiterOn(true);
 		}
 
 	}
