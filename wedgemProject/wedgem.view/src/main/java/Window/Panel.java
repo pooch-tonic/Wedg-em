@@ -8,17 +8,22 @@ import javax.swing.JPanel;
 import interfacesModel.IBoard;
 import interfacesModel.ISquare;
 import interfacesModel.IUnit;
+import vector.Vector;
 
 public class Panel extends JPanel {
 	private static final long	serialVersionUID	= 6527399859189638479L;
 
 	private IBoard				board;
 	private Image				boardSprite;
+	private Image				delimiterSprite;
 	private int					xBoard;
 	private int					yBoard;
+	private boolean				paintDelimiter;
+	private Vector				delimiterPosition;
 
-	public Panel(final IBoard board) {
+	public Panel(final IBoard board, final Image delimiterSprite) {
 		this.setBoard(board);
+		this.setDelimiterSprite(delimiterSprite);
 		this.setBoardSprite(this.getBoard().getSprite());
 		this.setxBoard(this.getBoard().getPosition().getX().intValue());
 		this.setyBoard(this.getBoard().getPosition().getY().intValue());
@@ -52,6 +57,10 @@ public class Panel extends JPanel {
 		return this.boardSprite;
 	}
 
+	public boolean getPaintDelimiter() {
+		return this.paintDelimiter;
+	}
+
 	private int getxBoard() {
 		return this.xBoard;
 	}
@@ -71,8 +80,17 @@ public class Panel extends JPanel {
 		this.board = board;
 	}
 
+	private void drawDelimiter(final Graphics g) {
+		g.drawImage(this.getDelimiterSprite(), this.x, this.y, null)
+	}
+
 	private void setBoardSprite(final Image boardSprite) {
 		this.boardSprite = boardSprite;
+	}
+
+	public void setPaintDelimiter(final boolean paintDelimiter, final int x, final int y) {
+		this.paintDelimiter = paintDelimiter;
+		this.setDelimiterPosition(new Vector(x, y));
 	}
 
 	private void setxBoard(final int xBoard) {
@@ -81,6 +99,22 @@ public class Panel extends JPanel {
 
 	private void setyBoard(final int yBoard) {
 		this.yBoard = yBoard;
+	}
+
+	private Image getDelimiterSprite() {
+		return this.delimiterSprite;
+	}
+
+	private void setDelimiterSprite(final Image delimiterSprite) {
+		this.delimiterSprite = delimiterSprite;
+	}
+
+	private Vector getDelimiterPosition() {
+		return this.delimiterPosition;
+	}
+
+	private void setDelimiterPosition(final Vector delimiterPosition) {
+		this.delimiterPosition = delimiterPosition;
 	}
 
 }

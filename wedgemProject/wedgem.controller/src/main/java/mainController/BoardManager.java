@@ -10,7 +10,7 @@ public class BoardManager {
 	public BoardManager() {
 	}
 
-	private int[] getSquareIndexesUnderMouse(final IBoard board, final Point mousePosition) {
+	public int[] getSquareIndexesUnderMouse(final IBoard board, final Point mousePosition) {
 		return (new int[] { (int) (mousePosition.getY() / GameSettings.getSquaresize()),
 				(int) (mousePosition.getX() / GameSettings.getSquaresize()) });
 		// returns [Y = Lines][X = Columns]

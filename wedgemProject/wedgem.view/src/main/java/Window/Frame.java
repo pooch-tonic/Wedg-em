@@ -3,6 +3,7 @@ package Window;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 
@@ -14,12 +15,11 @@ public class Frame extends JFrame {
 	private static final long	serialVersionUID	= 8629432388334700177L;
 	private Panel				panel;
 	private IBoard				board;
-	private boolean				isMouseInFrame;
 
-	public Frame(final IBoard board) {
+	public Frame(final IBoard board, final Image delimiterSprite) {
 		this.setBoard(board);
 		this.initFrame();
-		this.initPanel();
+		this.initPanel(delimiterSprite);
 		this.addPanelToFrame();
 	}
 
@@ -49,8 +49,8 @@ public class Frame extends JFrame {
 		this.pack();
 	}
 
-	private void initPanel() {
-		this.setPanel(new Panel(this.getBoard()));
+	private void initPanel(final Image delimiterSprite) {
+		this.setPanel(new Panel(this.getBoard(), delimiterSprite));
 		this.getPanel().setBackground(Color.BLACK);
 	}
 

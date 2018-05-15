@@ -6,6 +6,7 @@ import java.awt.event.MouseMotionListener;
 
 import Window.Frame;
 import game.Game;
+import gameSettings.GameSettings;
 import interfacesModel.IBoard;
 import interfacesModel.IGame;
 import mainController.MainController;
@@ -41,15 +42,18 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 		this.setGame(new Game());
 		this.setController(new MainController());
 		this.setBoardTemp(this.getGame().getBoard());
-		this.setFrame(new Frame(this.getGame().getBoard()));
+		this.setFrame(new Frame(this.getGame().getBoard(), this.getGame().getDelimiterSprite()));
 		this.getFrame().getContentPane().addMouseListener(this);
 		this.getFrame().getContentPane().addMouseMotionListener(this);
 		this.getFrame().getPanel().repaint();
 	}
 
 	public void mouseClicked(final MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		int[] indexes = this.getController().getBoardManager().getSquareIndexesUnderMouse(this.getBoardTemp(),
+				e.getPoint());
+		if (this.boardTemp.getSquare(indexes[0], indexes[1]).getUnit() != null) {
+			this.toggleDelimiter(indexes[0] * GameSettings.getSquaresize(), indexes[1] * GameSettings.getSquaresize());
+		}
 	}
 
 	public void mouseDragged(final MouseEvent e) {
@@ -105,6 +109,10 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 
 	private void setGame(final IGame game) {
 		this.game = game;
+	}
+
+	private void toggleDelimiter(final int x, final int y) {
+
 	}
 
 }
