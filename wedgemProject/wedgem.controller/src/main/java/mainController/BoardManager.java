@@ -50,6 +50,10 @@ public class BoardManager {
 		}
 	}
 
+	private void clearWedgedUnitsIndexes(final ArrayList<int[]> wedgedUnitsIndexes) {
+		wedgedUnitsIndexes.clear();
+	}
+
 	public int[] getLastSelectedSquareIndexes() {
 		return this.lastSelectedSquareIndexes;
 	}
@@ -72,7 +76,7 @@ public class BoardManager {
 						&& y <= GameSettings.getBoardHeight())
 						|| (!canWedge); x += direction.getIntX(), y += direction.getIntY()) {
 			if (board.getSquare(x, y).getUnit().getPlayer() == wedgingPlayer) {
-				this.addIndexesEntry(new int[] { 0, 0 }, wedgedUnitsIndexes);
+				this.addIndexesEntry(new int[] { x, y }, wedgedUnitsIndexes);
 			}
 		}
 	}
@@ -104,6 +108,13 @@ public class BoardManager {
 		board.getSquare(originIndexes).removeUnit();
 	}
 
+	private void removeWedgedUnits(final IBoard board, final ArrayList<int[]> wedgedUnitsIndexes) {
+		for (int[] indexes : wedgedUnitsIndexes) {
+			board.getSquare(indexes).removeUnit();
+		}
+
+	}
+
 	public void resizeHoveredUnit(final IBoard board, final Point mousePosition) {
 		int[] hoveredSquareIndexes = this.getSquareIndexesUnderMouse(board, mousePosition);
 		board.manageHoveredUnit(hoveredSquareIndexes);
@@ -128,7 +139,8 @@ public class BoardManager {
 	public void wedge(final IBoard board, final int[] wedgingUnitIndexes) {
 		ArrayList<int[]> wedgedUnitsIndexes = new ArrayList<int[]>();
 		this.checkIfWedging(board, wedgingUnitIndexes, wedgedUnitsIndexes);
-
+		this.removeWedgedUnits(board, wedgedUnitsIndexes);
+		this.clearWedgedUnitsIndexes(wedgedUnitsIndexes);
 	}
 
 }
