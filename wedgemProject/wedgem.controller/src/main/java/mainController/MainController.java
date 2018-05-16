@@ -44,6 +44,7 @@ public class MainController implements InteractionPerformer {
 			 */
 			this.getBoardManager().moveUnit(board, this.getBoardManager().getLastSelectedSquareIndexes(),
 					selectedSquareIndexes);
+			this.getBoardManager().wedge(board, selectedSquareIndexes);
 		}
 	}
 
