@@ -47,6 +47,14 @@ public class Vector {
 		this.set(this.getX() / this.avoidDivideByZero((float) k), this.getY() / this.avoidDivideByZero((float) k));
 	}
 
+	public int getIntX() {
+		return this.x.intValue();
+	}
+
+	public int getIntY() {
+		return this.y.intValue();
+	}
+
 	public Float getX() {
 		return this.x;
 	}
@@ -63,6 +71,18 @@ public class Vector {
 		this.set(this.getX() * k, this.getY() * k);
 	}
 
+	public Vector returnAddResult(final Vector v) {
+		return new Vector(this.getX() + v.getX(), this.getY() + v.getY());
+	}
+
+	public Vector returnMultResult(final Vector v) {
+		return new Vector(this.getX() * v.getX(), this.getY() * v.getY());
+	}
+
+	public Vector returnSubResult(final Vector v) {
+		return new Vector(this.getX() - v.getX(), this.getY() - v.getY());
+	}
+
 	public void set(final Float x, final Float y) {
 		this.setX(x);
 		this.setY(y);
@@ -71,6 +91,11 @@ public class Vector {
 	public void set(final int x, final int y) {
 		this.setX(x);
 		this.setY(y);
+	}
+
+	public void set(final Vector v) {
+		this.setX(v.getX());
+		this.setY(v.getY());
 	}
 
 	private void setX(final Float x) {
