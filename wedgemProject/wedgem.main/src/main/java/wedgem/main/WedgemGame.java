@@ -57,8 +57,11 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 	public void mouseClicked(final MouseEvent e) {
 		int[] indexes = this.getController().getBoardManager().getSquareIndexesUnderMouse(this.getBoardTemp(),
 				e.getPoint());
-		if (this.boardTemp.getSquare(indexes[0], indexes[1]).getUnit() != null) {
-			this.toggleDelimiter(indexes[1] * GameSettings.getSquaresize(), indexes[0] * GameSettings.getSquaresize());
+		if (this.isDelimiterOn()) {
+			this.getController().processNewSelection(this.getBoardTemp(), indexes);
+			this.toggleDelimiter(indexes);
+		} else if (!this.getBoardTemp().getSquare(indexes).isEmpty()) {
+			this.toggleDelimiter(indexes);
 		}
 	}
 
@@ -121,7 +124,9 @@ public class WedgemGame implements MouseListener, MouseMotionListener {
 		this.isDelimiterOn = toggleDelimiter;
 	}
 
-	private void toggleDelimiter(final int x, final int y) {
+	private void toggleDelimiter(final int[] indexes) {
+		int x = indexes[1] * GameSettings.getSquaresize();
+		int y = indexes[0] * GameSettings.getSquaresize();
 		if (this.isDelimiterOn()) {
 			this.getFrame().getPanel().setPaintDelimiter(false, x, y);
 			this.setIsDelimiterOn(false);

@@ -11,9 +11,13 @@ public interface IBoard {
 
 	public ISquare getSquare(final int line, final int column);
 
+	public ISquare getSquare(final int[] indexes);
+
 	public ISquare[][] getSquares();
 
 	public void manageHoveredUnit(final int line, final int column);
+
+	public void manageHoveredUnit(final int[] indexes);
 
 	public void resetAllUnits();
 

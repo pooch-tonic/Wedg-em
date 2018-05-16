@@ -2,6 +2,7 @@ package board;
 
 import interfacesModel.ISquare;
 import interfacesModel.IUnit;
+import unit.Selector;
 
 public class Square implements ISquare {
 	private IUnit unit;
@@ -14,14 +15,35 @@ public class Square implements ISquare {
 		this.setUnit(unit);
 	}
 
+	public void createSelectorIfEmpty(final int[] indexes) {
+		if (this.isEmpty()) {
+			this.setUnit(new Selector(indexes));
+		}
+	}
+
 	public IUnit getUnit() {
 		return this.unit;
 	}
 
-	public void placeUnitIfEmpty(final IUnit unit) {
+	public boolean isEmpty() {
 		if (this.getUnit() == null) {
+			return true;
+		} else if (this.getUnit().getPlayer() == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void placeUnitIfEmpty(final IUnit unit) {
+		if (this.isEmpty()) {
 			this.setUnit(unit);
 		}
+	}
+
+	public void receiveMovingUnit(final IUnit movingUnit, final int[] targetIndexes) {
+		this.setUnit(movingUnit);
+		this.getUnit().updatePosition(targetIndexes);
 	}
 
 	public void removeUnit() {

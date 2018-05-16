@@ -26,6 +26,27 @@ public class MainController implements InteractionPerformer {
 
 	}
 
+	public void processNewSelection(final IBoard board, final int[] selectedSquareIndexes) {
+
+		/*
+		 * DEBUG
+		 *
+		 * System.out.println("CLICK BEFORE MOVE :  LINE " + selectedSquareIndexes[0] +
+		 * ", COLUMN " + selectedSquareIndexes[1]);
+		 */
+
+		if (this.getBoardManager().checkIfMoveAllowed(board, selectedSquareIndexes)) {
+
+			/*
+			 * DEBUG
+			 *
+			 * System.out.println("MOVE");
+			 */
+			this.getBoardManager().moveUnit(board, this.getBoardManager().getLastSelectedSquareIndexes(),
+					selectedSquareIndexes);
+		}
+	}
+
 	private void setBoardManager(final BoardManager boardManager) {
 		this.boardManager = boardManager;
 	}

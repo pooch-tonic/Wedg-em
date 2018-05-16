@@ -26,8 +26,13 @@ public class Unit implements IUnit, IButton, IDisplayable {
 		this.setHoveredSprite(null);
 	}
 
-	public Unit(final int player, final int x, final int y) {
-		this.initialize(player, new Vector(x, y));
+	public Unit(final int player, final int line, final int column) {
+		this.initialize(player, new Vector(column * GameSettings.getSquaresize(), line * GameSettings.getSquaresize()));
+	}
+
+	public Unit(final int player, final int[] indexes) {
+		this.initialize(player,
+				new Vector(indexes[1] * GameSettings.getSquaresize(), indexes[0] * GameSettings.getSquaresize()));
 	}
 
 	public Unit(final int player, final Vector position) {
@@ -135,6 +140,13 @@ public class Unit implements IUnit, IButton, IDisplayable {
 
 	public void setSprite(final Image sprite) {
 		this.sprite = sprite;
+	}
+
+	public void updatePosition(final int[] indexes) {
+		this.setPosition(
+				new Vector(indexes[1] * GameSettings.getSquaresize(), indexes[0] * GameSettings.getSquaresize()));
+		this.setNormalPosition(this.getPosition());
+		this.setHoveredPosition(this.calculateHoveredPosition());
 	}
 
 	public void useHoveredSprite() {

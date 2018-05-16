@@ -7,7 +7,6 @@ import image.SpriteProvider;
 import interfacesModel.IBoard;
 import interfacesModel.IDisplayable;
 import interfacesModel.ISquare;
-import interfacesModel.IUnit;
 import unit.Unit;
 import vector.Vector;
 
@@ -35,6 +34,10 @@ public class Board implements IBoard, IDisplayable {
 		return this.squares[line][column];
 	}
 
+	public ISquare getSquare(final int[] indexes) {
+		return this.squares[indexes[0]][indexes[1]];
+	}
+
 	public ISquare[][] getSquares() {
 		return this.squares;
 	}
@@ -49,22 +52,22 @@ public class Board implements IBoard, IDisplayable {
 
 	public void manageHoveredUnit(final int line, final int column) {
 		// System.out.println("line " + line + ", column " + column);
-		if (this.squares[line][column].getUnit() != null) {
+		if (!this.squares[line][column].isEmpty()) {
 			this.squares[line][column].getUnit().useHoveredSprite();
 		}
+	}
+
+	public void manageHoveredUnit(final int[] indexes) {
+		this.manageHoveredUnit(indexes[0], indexes[1]);
 	}
 
 	public void resetAllUnits() {
 		for (ISquare[] squaresRow : this.squares) {
 			for (ISquare square : squaresRow) {
-				IUnit unitTemp = square.getUnit();
-				if (unitTemp != null) {
-					if (unitTemp.getPlayer() != 0) {
-						unitTemp.resetSprite();
-					} else {
-						square.removeUnit();
-					}
-
+				if (square.isEmpty()) {
+					square.removeUnit();
+				} else {
+					square.getUnit().resetSprite();
 				}
 			}
 		}
@@ -94,7 +97,7 @@ public class Board implements IBoard, IDisplayable {
 
 	public void setSquaresFilledLine(final int line, final int maxColumns, final int squareSize, final int player) {
 		for (int i = 0; i < maxColumns; i++) {
-			this.squares[line][i] = new Square(new Unit(player, i * squareSize, line * squareSize));
+			this.squares[line][i] = new Square(new Unit(player, line, i));
 			/*
 			 * System.out.println("player " + player + ",line " + line + ", column " + i +
 			 * ", position [" + i * squareSize + "; " + line * squareSize + "]");

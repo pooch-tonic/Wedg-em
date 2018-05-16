@@ -15,5 +15,7 @@ public interface IUnit {
 
 	public void setPosition(final Vector position);
 
+	public void updatePosition(int[] indexes);
+
 	public void useHoveredSprite();
 }
